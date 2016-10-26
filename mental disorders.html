@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Monthly Temp</title>
+	<!-- Load JQuery -->
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<meta charset="utf-8">
+
+	<style>
+
+	</style>
+
+</head>
+
+<body>
+	<h2>New York City Leading Causes of Death</h2>
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	<script>
+		$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'Mental Disorders Due to Use of Alcohol from 2007 to 2011',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: NYC OpenData',
+            x: -20
+        },
+        xAxis: {
+            categories: ['2007', '2008', '2009', '2010', '2011']
+        },
+        yAxis: {
+            title: {
+                text: 'Number'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'HISPANIC',
+            data: [56, 48, 41, 46, 48]
+        }, {
+            name: 'NON-HISPANIC BLACK',
+            data: [49, 51, 71, 50, 62]
+        }, {
+            name: 'NON-HISPANIC WHITE',
+            data: [72, 94, 86, 73, 79]
+        }, {
+            name: 'ASIAN & PACIFIC ISLANDER',
+            data: [11, 5, 8, 9, 11]
+        }]
+    });
+});
+	</script>
+
+</body>
+</html>
