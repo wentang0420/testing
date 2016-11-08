@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Licensing Center Customer Data</title>
+	<!-- Load JQuery -->
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<meta charset="utf-8">
+
+	<style>
+
+	</style>
+
+</head>
+
+<body>
+	<h2>Licensing Center Customer Data</h2>
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	<script>
+  $(function () {
+  Highcharts.chart('container', {
+      chart: {
+          zoomType: 'xy'
+      },
+      title: {
+          text: 'Licensing Center Customer Data'
+      },
+      subtitle: {
+          text: 'Source: NYC Open Data'
+      },
+      xAxis: [{
+          categories: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan',
+              'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          crosshair: true
+      }],
+      yAxis: [{ // Primary yAxis
+          labels: {
+              format: '{value} people',
+              style: {
+                  color: Highcharts.getOptions().colors[1]
+              }
+          },
+          title: {
+              text: 'Customers Served',
+              style: {
+                  color: Highcharts.getOptions().colors[1]
+              }
+          }
+      }, { // Secondary yAxis
+          title: {
+              text: 'Time',
+              style: {
+                  color: Highcharts.getOptions().colors[0]
+              }
+          },
+          labels: {
+              format: '{value} min',
+              style: {
+                  color: Highcharts.getOptions().colors[0]
+              }
+          },
+          opposite: true
+      }],
+      tooltip: {
+				  pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+          shared: true
+      },
+      legend: {
+          layout: 'vertical',
+          align: 'left',
+          x: 120,
+          verticalAlign: 'top',
+          y: 100,
+          floating: true,
+          backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+      },
+      series: [{
+          name: 'Average Transaction Time',
+          type: 'column',
+          yAxis: 1,
+          data: [11.3, 11, 11.4, 11.2, 11.4, 11.7, 10.7, 10.8, 10.5, 11, 11.3],
+          tooltip: {
+              valueSuffix: ' min'
+          }
+
+      },{
+          name: 'Average Wait Time',
+          type: 'column',
+          yAxis: 1,
+          data: [10.6, 7.7, 3.8, 5.1, 4.4, 6.6, 8.5, 14.9, 11.2, 10.4, 6.5],
+          tooltip: {
+              valueSuffix: ' min'
+          }
+
+      }, {
+          name: 'Customers Served',
+          type: 'spline',
+          data: [7758, 7870, 6712,5669, 6489, 5225, 6496, 9072, 8275, 7452, 6740],
+          tooltip: {
+              valueSuffix: ' people'
+          }
+      }]
+  });
+});
+	</script>
+
+</body>
+</html>
